@@ -1,0 +1,58 @@
+import type { CalendarEvent } from "@/types/event"
+
+export const academic2025: CalendarEvent[] = [
+  {
+    id: "ac-2025-04-01",
+    title: "春学期開始",
+    date: "2025-04-01",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+  {
+    id: "ac-2025-04-02",
+    title: "入学式",
+    date: "2025-04-02",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+  {
+    id: "ac-2025-04-29",
+    title: "祝日授業日（昭和の日）",
+    date: "2025-04-29",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+  {
+    id: "ac-2025-09-23",
+    title: "卒業式",
+    date: "2025-09-23",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+  {
+    id: "ac-2025-09-24",
+    title: "秋季入学者オリエンテーション",
+    date: "2025-09-24",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+  {
+    id: "ac-2025-09-26",
+    title: "秋学期開始",
+    date: "2025-09-26",
+    allDay: true,
+    color: "red",
+    repeat: "none",
+    source: "academic",
+  },
+]
