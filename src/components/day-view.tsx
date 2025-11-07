@@ -76,7 +76,7 @@ export function DayView({ date }: DayViewProps) {
                 className="w-full text-left active:bg-gray-50 p-2 -mx-2 rounded touch-manipulation"
               >
                 <div className="flex gap-3">
-                  <div className="w-1 rounded-full" style={{ backgroundColor: getColorHex(event.color) }} />
+                  <div className="w-1 rounded-full" style={{ backgroundColor: getColorHex(event.color || "red") }} />
                   <div className="flex-1">
                     {!event.allDay && (
                       <div className="text-xs text-gray-600 mb-1">

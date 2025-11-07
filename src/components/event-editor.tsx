@@ -39,7 +39,7 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
           setAllDay(event.allDay)
           setStartTime(event.startTime || "12:00")
           setEndTime(event.endTime || "13:30")
-          setColor(event.color)
+          setColor(event.color || "red")
           setRepeat(event.repeat)
           setRepeatInterval(event.repeatInterval || 1)
           setRepeatDays(event.repeatDays || [])
