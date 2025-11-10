@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { ChevronLeft, ChevronRight, Palette } from "lucide-react"
-import type { CalendarEvent, EventColor, Repeat } from "@/types/event"
+import { ChevronLeft, Palette } from "lucide-react"
+import type { CalendarEvent, EventColor } from "@/types/event"
 import { getEventById, saveEvent, deleteEvent } from "@/lib/store"
 import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
@@ -22,42 +22,21 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
   const [startTime, setStartTime] = useState("12:00")
   const [endTime, setEndTime] = useState("13:30")
   const [color, setColor] = useState<EventColor>("red")
-  const [repeat, setRepeat] = useState<Repeat>("none")
-  const [repeatInterval, setRepeatInterval] = useState(1)
-  const [repeatDays, setRepeatDays] = useState<number[]>([])
-  const [hasRepeatEnd, setHasRepeatEnd] = useState(false)
-  const [repeatEndDate, setRepeatEndDate] = useState("")
-  const [repeatExpanded, setRepeatExpanded] = useState(false)
 
   useEffect(() => {
     if (!isNew && eventId) {
       const event = getEventById(eventId)
       if (event) {
-        // Use a timeout to avoid synchronous setState in effect
         const timer = setTimeout(() => {
           setTitle(event.title)
           setAllDay(event.allDay)
           setStartTime(event.startTime || "12:00")
           setEndTime(event.endTime || "13:30")
           setColor(event.color || "red")
-          setRepeat(event.repeat)
-          setRepeatInterval(event.repeatInterval || 1)
-          setRepeatDays(event.repeatDays || [])
-          setHasRepeatEnd(!!event.repeatEndDate)
-          setRepeatEndDate(event.repeatEndDate || "")
         }, 0)
         
         return () => clearTimeout(timer)
       }
-    } else if (initialDate) {
-      const timer = setTimeout(() => {
-        const date = new Date(initialDate)
-        const endDate = new Date(date)
-        endDate.setMonth(endDate.getMonth() + 1)
-        setRepeatEndDate(endDate.toISOString().split("T")[0])
-      }, 0)
-      
-      return () => clearTimeout(timer)
     }
   }, [eventId, isNew, initialDate])
 
@@ -70,10 +49,6 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
       startTime: allDay ? undefined : startTime,
       endTime: allDay ? undefined : endTime,
       color,
-      repeat,
-      repeatInterval: repeat === "daily" ? repeatInterval : undefined,
-      repeatDays: repeat === "weekly" ? repeatDays : undefined,
-      repeatEndDate: hasRepeatEnd ? repeatEndDate : undefined,
       source: "user",
     }
 
@@ -86,18 +61,6 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
       deleteEvent(eventId)
     }
     router.back()
-  }
-
-  const toggleRepeatDay = (day: number) => {
-    setRepeatDays((prev) => (prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day]))
-  }
-
-  const adjustRepeatEndDate = (field: "year" | "month" | "day", delta: number) => {
-    const date = new Date(repeatEndDate || new Date())
-    if (field === "year") date.setFullYear(date.getFullYear() + delta)
-    if (field === "month") date.setMonth(date.getMonth() + delta)
-    if (field === "day") date.setDate(date.getDate() + delta)
-    setRepeatEndDate(date.toISOString().split("T")[0])
   }
 
   return (
@@ -170,140 +133,6 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
                 />
               ))}
             </div>
-          </div>
-
-          {/* Repeat section */}
-          <div>
-            <button
-              onClick={() => setRepeatExpanded(!repeatExpanded)}
-              className="flex items-center justify-between w-full touch-manipulation"
-            >
-              <span className="text-sm">繰り返し</span>
-              <ChevronRight className={`w-4 h-4 transition-transform ${repeatExpanded ? "rotate-90" : ""}`} />
-            </button>
-
-            {repeatExpanded && (
-              <div className="mt-4 space-y-4">
-                {/* Repeat mode */}
-                <div className="flex gap-2 flex-wrap">
-                  {(["none", "daily", "weekly", "monthly"] as Repeat[]).map((mode) => (
-                    <button
-                      key={mode}
-                      onClick={() => setRepeat(mode)}
-                      className={`px-3 py-1.5 text-xs rounded-full touch-manipulation ${
-                        repeat === mode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-700"
-                      }`}
-                    >
-                      {mode === "none" && "なし"}
-                      {mode === "daily" && "毎日"}
-                      {mode === "weekly" && "毎週"}
-                      {mode === "monthly" && "毎月"}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Daily interval */}
-                {repeat === "daily" && (
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setRepeatInterval(Math.max(1, repeatInterval - 1))}
-                      className="px-3 py-1.5 border rounded text-sm touch-manipulation"
-                    >
-                      -
-                    </button>
-                    <span className="text-sm">{repeatInterval}日ごと</span>
-                    <button
-                      onClick={() => setRepeatInterval(repeatInterval + 1)}
-                      className="px-3 py-1.5 border rounded text-sm touch-manipulation"
-                    >
-                      +
-                    </button>
-                  </div>
-                )}
-
-                {/* Weekly days */}
-                {repeat === "weekly" && (
-                  <div className="flex gap-1.5">
-                    {["月", "火", "水", "木", "金", "土", "日"].map((day, i) => (
-                      <button
-                        key={i}
-                        onClick={() => toggleRepeatDay(i)}
-                        className={`w-9 h-9 rounded-full text-xs touch-manipulation ${
-                          repeatDays.includes(i) ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-700"
-                        }`}
-                      >
-                        {day}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {/* Repeat end date */}
-                {repeat !== "none" && (
-                  <>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={hasRepeatEnd}
-                        onChange={(e) => setHasRepeatEnd(e.target.checked)}
-                        className="w-4 h-4 touch-manipulation"
-                      />
-                      <span className="text-xs">繰り返し終了日を設定する</span>
-                    </div>
-
-                    {hasRepeatEnd && (
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <div className="flex items-center gap-1">
-                          <button
-                            onClick={() => adjustRepeatEndDate("year", -1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            -
-                          </button>
-                          <span className="text-xs w-14 text-center">{new Date(repeatEndDate).getFullYear()}年</span>
-                          <button
-                            onClick={() => adjustRepeatEndDate("year", 1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            +
-                          </button>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <button
-                            onClick={() => adjustRepeatEndDate("month", -1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            -
-                          </button>
-                          <span className="text-xs w-10 text-center">{new Date(repeatEndDate).getMonth() + 1}月</span>
-                          <button
-                            onClick={() => adjustRepeatEndDate("month", 1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            +
-                          </button>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <button
-                            onClick={() => adjustRepeatEndDate("day", -1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            -
-                          </button>
-                          <span className="text-xs w-10 text-center">{new Date(repeatEndDate).getDate()}日</span>
-                          <button
-                            onClick={() => adjustRepeatEndDate("day", 1)}
-                            className="px-2 py-1 border rounded text-xs touch-manipulation"
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>

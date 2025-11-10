@@ -5,12 +5,11 @@ import { useRouter } from "next/navigation"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getMonthDays, formatDate, isToday, isSameMonth } from "@/lib/calendar"
 import { getEvents, getAcademicEvents } from "@/lib/store"
-import { generateRecurringEvents } from "@/lib/recurrence"
 import { Switch } from "@/components/ui/switch"
 
 export function CalendarMonth() {
   const router = useRouter()
-  const [currentDate, setCurrentDate] = useState(new Date(2025, 8, 1)) // September 2025
+  const [currentDate, setCurrentDate] = useState(new Date()) 
   const [showAcademic, setShowAcademic] = useState(false)
 
   const year = currentDate.getFullYear()
@@ -21,14 +20,9 @@ export function CalendarMonth() {
   const academicEvents = showAcademic ? getAcademicEvents() : []
   const allEvents = [...userEvents, ...academicEvents]
 
-  // Generate all recurring events for the month
-  const monthStart = new Date(year, month, 1)
-  const monthEnd = new Date(year, month + 1, 0)
-  const expandedEvents = allEvents.flatMap((event) => generateRecurringEvents(event, monthStart, monthEnd))
-
   const getEventsForDay = (date: Date) => {
     const dateStr = formatDate(date)
-    return expandedEvents.filter((e) => e.date === dateStr)
+    return allEvents.filter((e) => e.date === dateStr)
   }
 
   const handlePrevMonth = () => {
@@ -40,7 +34,7 @@ export function CalendarMonth() {
   }
 
   const handleDayClick = (date: Date) => {
-    router.push(`/day/${formatDate(date)}`)
+    router.push(`/${formatDate(date)}`)
   }
 
   return (
@@ -99,7 +93,7 @@ export function CalendarMonth() {
                   {dayEvents.slice(0, 2).map((event) => (
                     <div
                       key={event.id}
-                      className="text-[10px] px-1 py-0.5 rounded truncate leading-tight"
+                      className="text-[10px] font-bold px-1 py-0.5 rounded truncate leading-tight"
                       style={{
                         backgroundColor: event.source === "academic" ? "#f5f5f5" : `${getColorHex(event.color)}20`,
                         color: event.source === "academic" ? "#656565" : getColorHex(event.color),
@@ -127,9 +121,9 @@ export function CalendarMonth() {
 function getColorHex(color: string): string {
   const colors = {
     red: "#FF7468",
-    blue: "#68C0FF",
-    green: "#83FF68",
-    orange: "#FFBD68",
+    blue: "#0888FF",
+    green: "#03C700",
+    orange: "#F19203",
   }
   return colors[color as keyof typeof colors] || colors.red
 }

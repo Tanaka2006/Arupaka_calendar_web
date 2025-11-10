@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation"
 import { ChevronLeft, Plus } from "lucide-react"
 import { parseDate, getJapaneseDayOfWeek } from "@/lib/calendar"
 import { getEvents, getAcademicEvents } from "@/lib/store"
-import { getEventsForDate } from "@/lib/recurrence"
 
 interface DayViewProps {
   date: string
@@ -18,7 +17,8 @@ export function DayView({ date }: DayViewProps) {
   const academicEvents = getAcademicEvents()
   const allEvents = [...userEvents, ...academicEvents]
 
-  const dayEvents = getEventsForDate(allEvents, dateObj)
+  // シンプルなイベント取得
+  const dayEvents = allEvents.filter((event) => event.date === date)
   const academicDayEvents = dayEvents.filter((e) => e.source === "academic")
   const userDayEvents = dayEvents.filter((e) => e.source === "user")
 

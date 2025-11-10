@@ -6,7 +6,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春学期開始",
     date: "2025-04-01",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -14,7 +13,6 @@ export const academic2025: CalendarEvent[] = [
     title: "オリエンテーション",
     date: "2025-04-01",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -22,7 +20,6 @@ export const academic2025: CalendarEvent[] = [
     title: "入学式",
     date: "2025-04-02",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -30,7 +27,6 @@ export const academic2025: CalendarEvent[] = [
     title: "オリエンテーション",
     date: "2025-04-03",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -38,7 +34,6 @@ export const academic2025: CalendarEvent[] = [
     title: "オリエンテーション",
     date: "2025-04-04",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -46,7 +41,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春セメスター時間割授業開始",
     date: "2025-04-07",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -54,7 +48,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日授業日（昭和の日）",
     date: "2025-04-29",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -62,7 +55,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日（憲法記念日）",
     date: "2025-05-03",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -70,7 +62,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日（みどりの日）",
     date: "2025-05-04",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -78,7 +69,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日（こどもの日）",
     date: "2025-05-05",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -86,7 +76,6 @@ export const academic2025: CalendarEvent[] = [
     title: "休日（振替休日）",
     date: "2025-05-06",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -94,7 +83,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日①",
     date: "2025-05-24",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -102,7 +90,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日②",
     date: "2025-06-28",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -110,7 +97,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春セメスター時間割授業終了",
     date: "2025-07-15",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -118,7 +104,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日③",
     date: "2025-07-16",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -126,7 +111,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春セメスター定期試験開始",
     date: "2025-07-17",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -134,7 +118,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春セメスター定期試験終了",
     date: "2025-07-25",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -142,7 +125,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏期休暇開始",
     date: "2025-07-26",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -150,7 +132,6 @@ export const academic2025: CalendarEvent[] = [
     title: "定期試験予備日",
     date: "2025-07-26",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -158,7 +139,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験日",
     date: "2025-07-30",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -166,7 +146,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験日",
     date: "2025-07-31",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -174,7 +153,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験予備日",
     date: "2025-08-01",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -182,7 +160,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験（薬学部のみ）開始",
     date: "2025-08-19",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -190,7 +167,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験（薬学部のみ）終了",
     date: "2025-08-22",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -198,7 +174,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験予備日（薬学部のみ）",
     date: "2025-08-23",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -206,7 +181,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏集中講義（第1期）開始",
     date: "2025-08-25",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -214,7 +188,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏集中講義（第1期）終了",
     date: "2025-08-30",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -222,7 +195,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏集中講義（第2期）開始",
     date: "2025-09-01",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -230,7 +202,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春学期卒業学位記授与式・成績発表日",
     date: "2025-09-04",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -238,7 +209,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏集中講義（第2期）終了",
     date: "2025-09-06",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -246,7 +216,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋季卒業式（秋分の日）",
     date: "2025-09-23",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -254,7 +223,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋入学式オリエンテーション",
     date: "2025-09-24",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -262,7 +230,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋学入学式",
     date: "2025-09-25",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -270,7 +237,6 @@ export const academic2025: CalendarEvent[] = [
     title: "夏季休暇終了",
     date: "2025-09-25",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -278,7 +244,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋セメスター時間割授業開始",
     date: "2025-09-26",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -286,7 +251,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日授業日（スポーツの日）",
     date: "2025-10-13",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -294,7 +258,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日①",
     date: "2025-11-01",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -302,7 +265,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日授業日（文化の日）",
     date: "2025-11-03",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -310,7 +272,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日授業日（勤労感謝の日・振替休日）",
     date: "2025-11-24",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -318,7 +279,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日②",
     date: "2025-12-20",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -326,7 +286,6 @@ export const academic2025: CalendarEvent[] = [
     title: "冬期休暇開始",
     date: "2025-12-26",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -334,7 +293,6 @@ export const academic2025: CalendarEvent[] = [
     title: "冬期休暇終了",
     date: "2026-01-05",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -342,7 +300,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋セメスター時間割授業再開",
     date: "2026-01-06",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -350,7 +307,6 @@ export const academic2025: CalendarEvent[] = [
     title: "祝日（成人の日）",
     date: "2026-01-12",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -358,7 +314,6 @@ export const academic2025: CalendarEvent[] = [
     title: "月曜日不足分授業日",
     date: "2026-01-13",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -366,7 +321,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋セメスター定期試験終了",
     date: "2026-01-13",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -374,7 +328,6 @@ export const academic2025: CalendarEvent[] = [
     title: "統一補講日③",
     date: "2026-01-14",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -382,7 +335,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋セメスター定期試験開始",
     date: "2026-01-15",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -390,7 +342,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋セメスター定期試験終了",
     date: "2026-01-23",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -398,7 +349,6 @@ export const academic2025: CalendarEvent[] = [
     title: "定期試験予備日",
     date: "2026-01-24",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -406,7 +356,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春期休暇開始",
     date: "2026-01-24",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -414,7 +363,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験日",
     date: "2026-01-28",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -422,7 +370,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験日",
     date: "2026-01-29",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -430,7 +377,6 @@ export const academic2025: CalendarEvent[] = [
     title: "追試験予備日",
     date: "2026-01-30",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -438,7 +384,6 @@ export const academic2025: CalendarEvent[] = [
     title: "卒業合否発表日（薬学部薬学科のみ）",
     date: "2026-02-09",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -446,7 +391,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験（薬学部のみ）開始",
     date: "2026-02-10",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -454,7 +398,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験（薬学部のみ）終了",
     date: "2026-02-13",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -462,7 +405,6 @@ export const academic2025: CalendarEvent[] = [
     title: "再試験予備日（薬学部のみ）",
     date: "2026-02-14",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -470,7 +412,6 @@ export const academic2025: CalendarEvent[] = [
     title: "秋学期卒業合否発表日・成績発表日",
     date: "2026-03-04",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -478,7 +419,6 @@ export const academic2025: CalendarEvent[] = [
     title: "冬集中科目成績発表日",
     date: "2026-03-13",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -486,7 +426,6 @@ export const academic2025: CalendarEvent[] = [
     title: "卒業式（OIC）（着分の日）",
     date: "2026-03-20",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -494,7 +433,6 @@ export const academic2025: CalendarEvent[] = [
     title: "卒業式（衣笠）",
     date: "2026-03-21",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -502,7 +440,6 @@ export const academic2025: CalendarEvent[] = [
     title: "卒業式（BKC）",
     date: "2026-03-22",
     allDay: true,
-    repeat: "none",
     source: "academic",
   },
   {
@@ -510,7 +447,6 @@ export const academic2025: CalendarEvent[] = [
     title: "春期休暇終了",
     date: "2026-03-31",
     allDay: true,
-    repeat: "none",
     source: "academic",
   }
 ]

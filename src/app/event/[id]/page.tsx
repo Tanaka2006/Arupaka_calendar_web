@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { EventEditor } from "@/components/event-editor"
 import { useSearchParams } from "next/navigation"
 
