@@ -1,6 +1,11 @@
 import React from "react"
 import { DayView } from "@/components/day-view"
 
-export default function DayPage({ params }: { params: { date: string } }) {
-  return <DayView date={params.date} />
+interface PageProps {
+  params: Promise<{ date: string }>
+}
+
+export default async function DayPage({ params }: PageProps) {
+  const { date } = await params
+  return <DayView date={date} />
 }

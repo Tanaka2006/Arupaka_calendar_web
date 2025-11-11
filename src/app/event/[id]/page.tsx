@@ -4,9 +4,22 @@ import React from "react"
 import { EventEditor } from "@/components/event-editor"
 import { useSearchParams } from "next/navigation"
 
-export default function EventPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
+export default function EventPage({ params }: PageProps) {
   const searchParams = useSearchParams()
   const date = searchParams.get("date") || undefined
+  
+  // paramsは非同期なので、useStateで管理する必要があります
+  const [eventId, setEventId] = React.useState<string>("")
+  
+  React.useEffect(() => {
+    params.then(({ id }) => setEventId(id))
+  }, [params])
 
-  return <EventEditor eventId={params.id} initialDate={date} />
+  if (!eventId) return <div>Loading...</div>
+
+  return <EventEditor eventId={eventId} initialDate={date} />
 }

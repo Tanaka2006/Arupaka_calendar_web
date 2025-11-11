@@ -17,7 +17,6 @@ export function DayView({ date }: DayViewProps) {
   const academicEvents = getAcademicEvents()
   const allEvents = [...userEvents, ...academicEvents]
 
-  // シンプルなイベント取得
   const dayEvents = allEvents.filter((event) => event.date === date)
   const academicDayEvents = dayEvents.filter((e) => e.source === "academic")
   const userDayEvents = dayEvents.filter((e) => e.source === "user")
