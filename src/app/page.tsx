@@ -1,5 +1,10 @@
 import { CalendarMonth } from "@/components/calendar-month"
 
-export default function HomePage() {
-  return <CalendarMonth />
+interface PageProps {
+  searchParams: Promise<{ month?: string }>
+}
+
+export default async function HomePage({ searchParams }: PageProps) {
+  const { month } = await searchParams
+  return <CalendarMonth initialMonth={month} />
 }

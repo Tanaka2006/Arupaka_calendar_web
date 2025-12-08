@@ -1,16 +1,34 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getMonthDays, formatDate, isToday, isSameMonth } from "@/lib/calendar"
 import { getEvents, getAcademicEvents } from "@/lib/store"
 import { Switch } from "@/components/ui/switch"
 
-export function CalendarMonth() {
+export function CalendarMonth({ initialMonth }: { initialMonth?: string }) {
   const router = useRouter()
-  const [currentDate, setCurrentDate] = useState(new Date()) 
-  const [showAcademic, setShowAcademic] = useState(false)
+  const [currentDate, setCurrentDate] = useState(() => {
+    if (initialMonth) {
+      // YYYY-MM を受け取り、その月の1日を初期日付にする
+      return new Date(`${initialMonth}-01`)
+    }
+    return new Date()
+  })
+  // 初期値をlocalStorageから復元
+  const [showAcademic, setShowAcademic] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false
+    const stored = localStorage.getItem("show-academic")
+    return stored ? stored === "true" : false
+  })
+
+  // 変更時に保存
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("show-academic", String(showAcademic))
+    }
+  }, [showAcademic])
 
   const year = currentDate.getFullYear()
   const month = currentDate.getMonth()

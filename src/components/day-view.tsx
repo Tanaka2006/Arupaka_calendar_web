@@ -22,7 +22,8 @@ export function DayView({ date }: DayViewProps) {
   const userDayEvents = dayEvents.filter((e) => e.source === "user")
 
   const handleBack = () => {
-    router.push("/")
+  const month = date.slice(0, 7)
+    router.push(`/?month=${month}`)
   }
 
   const handleAddEvent = () => {
