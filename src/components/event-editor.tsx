@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { ChevronLeft, Palette } from "lucide-react"
@@ -15,10 +17,15 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
   const router = useRouter()
   const isNew = !eventId || eventId === "new"
 
+  const formatTime = (d: Date) => d.toTimeString().slice(0, 5)
+  const now = new Date()
+  const oneHourLater = new Date(now)
+  oneHourLater.setHours(now.getHours() + 1)
+
   const [title, setTitle] = useState("")
   const [allDay, setAllDay] = useState(false)
-  const [startTime, setStartTime] = useState("12:00")
-  const [endTime, setEndTime] = useState("13:30")
+  const [startTime, setStartTime] = useState(formatTime(now))
+  const [endTime, setEndTime] = useState(formatTime(oneHourLater))
   const [color, setColor] = useState<EventColor>("red")
 
   useEffect(() => {
@@ -28,8 +35,8 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
         const timer = setTimeout(() => {
           setTitle(event.title)
           setAllDay(event.allDay)
-          setStartTime(event.startTime || "12:00")
-          setEndTime(event.endTime || "13:30")
+          setStartTime(event.startTime || formatTime(now))
+          setEndTime(event.endTime || formatTime(oneHourLater))
           setColor(event.color || "red")
         }, 0)
         
