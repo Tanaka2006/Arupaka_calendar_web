@@ -22,7 +22,7 @@ export function DayView({ date }: DayViewProps) {
   const userDayEvents = dayEvents.filter((e) => e.source === "user")
 
   const handleBack = () => {
-  const month = date.slice(0, 7)
+    const month = date.slice(0, 7)
     router.push(`/?month=${month}`)
   }
 
@@ -55,7 +55,7 @@ export function DayView({ date }: DayViewProps) {
         {academicDayEvents.length > 0 && (
           <div className="mt-2 space-y-1">
             {academicDayEvents.map((event) => (
-              <div key={event.id} className="text-xs" style={{ color: "#656565" }}>
+              <div key={`${event.id}-${event.title}`} className="text-xs" style={{ color: "#656565" }}>
                 {event.title}
               </div>
             ))}
@@ -72,7 +72,7 @@ export function DayView({ date }: DayViewProps) {
             {userDayEvents.map((event) => (
               <button
                 key={event.id}
-                onClick={() => handleEventClick(event.id.split("-")[0])}
+                onClick={() => handleEventClick(event.id)}
                 className="w-full text-left active:bg-gray-50 p-2 -mx-2 rounded touch-manipulation"
               >
                 <div className="flex gap-3">

@@ -83,14 +83,14 @@ export function CalendarMonth({ initialMonth }: { initialMonth?: string }) {
 
       {/* Calendar grid */}
       <div className="flex-1 grid grid-cols-7 auto-rows-fr overflow-hidden">
-        {days.map((date, index) => {
+        {days.map((date) => {
           const dayEvents = getEventsForDay(date)
           const isCurrentMonth = isSameMonth(date, month)
           const isTodayDate = isToday(date)
 
           return (
             <button
-              key={index}
+              key={formatDate(date)}
               onClick={() => handleDayClick(date)}
               className={`border-b border-r p-1 text-left active:bg-gray-100 touch-manipulation ${!isCurrentMonth ? "text-gray-300" : ""}`}
             >
@@ -107,7 +107,7 @@ export function CalendarMonth({ initialMonth }: { initialMonth?: string }) {
                 <div className="flex flex-col gap-0.5 overflow-hidden">
                   {dayEvents.slice(0, 2).map((event) => (
                     <div
-                      key={event.id}
+                      key={`${event.id}-${event.title}`}
                       className="text-[10px] font-bold px-1 py-0.5 rounded truncate leading-tight"
                       style={{
                         backgroundColor: event.source === "academic" ? "#f5f5f5" : `${getColorHex(event.color)}20`,

@@ -2,6 +2,7 @@
 
 import type { CalendarEvent } from "@/types/event"
 import { academic2025 } from "@/academic/academic-2025"
+import { academic2026 } from "@/academic/academic-2026"
 
 const STORAGE_KEY = "calendar-events"
 
@@ -32,7 +33,7 @@ export function getEvents(): CalendarEvent[] {
 }
 
 export function getAcademicEvents(): CalendarEvent[] {
-  return [...academic2025]
+  return [...academic2025, ...academic2026]
 }
 
 export function saveEvent(event: CalendarEvent): void {

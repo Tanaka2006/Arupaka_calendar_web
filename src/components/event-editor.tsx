@@ -23,6 +23,7 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
   oneHourLater.setHours(now.getHours() + 1)
 
   const [title, setTitle] = useState("")
+  const [eventDate, setEventDate] = useState(initialDate || new Date().toISOString().split("T")[0])
   const [allDay, setAllDay] = useState(false)
   const [startTime, setStartTime] = useState(formatTime(now))
   const [endTime, setEndTime] = useState(formatTime(oneHourLater))
@@ -34,6 +35,7 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
       if (event) {
         const timer = setTimeout(() => {
           setTitle(event.title)
+          setEventDate(event.date)
           setAllDay(event.allDay)
           setStartTime(event.startTime || formatTime(now))
           setEndTime(event.endTime || formatTime(oneHourLater))
@@ -49,7 +51,7 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
     const event: CalendarEvent = {
       id: isNew ? `e${Date.now()}` : eventId,
       title,
-      date: initialDate || new Date().toISOString().split("T")[0],
+      date: eventDate,
       allDay,
       startTime: allDay ? undefined : startTime,
       endTime: allDay ? undefined : endTime,
