@@ -133,3 +133,22 @@
     touch-action: manipulation;
   }
 }
+
+.time-field {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.time-field::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}

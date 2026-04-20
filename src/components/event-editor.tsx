@@ -105,21 +105,29 @@ export function EventEditor({ eventId, initialDate }: EventEditorProps) {
             <>
               <div className="flex items-center justify-between">
                 <span className="text-sm">開始</span>
-                <input
-                  type="time"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                  className="text-sm touch-manipulation"
-                />
+                <label className="relative grid h-10 w-[5rem] shrink-0 cursor-pointer place-items-center rounded-md bg-gray-100 text-sm font-medium tabular-nums text-gray-900 transition-colors hover:bg-gray-200">
+                  <span className="pointer-events-none leading-none">{startTime}</span>
+                  <input
+                    type="time"
+                    value={startTime}
+                    onChange={(e) => setStartTime(e.target.value)}
+                    className="time-field absolute inset-0 h-full w-full cursor-pointer opacity-0 touch-manipulation"
+                    aria-label="開始時間"
+                  />
+                </label>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm">終了</span>
-                <input
-                  type="time"
-                  value={endTime}
-                  onChange={(e) => setEndTime(e.target.value)}
-                  className="text-sm touch-manipulation"
-                />
+                <label className="relative grid h-10 w-[5rem] shrink-0 cursor-pointer place-items-center rounded-md bg-gray-100 text-sm font-medium tabular-nums text-gray-900 transition-colors hover:bg-gray-200">
+                  <span className="pointer-events-none leading-none">{endTime}</span>
+                  <input
+                    type="time"
+                    value={endTime}
+                    onChange={(e) => setEndTime(e.target.value)}
+                    className="time-field absolute inset-0 h-full w-full cursor-pointer opacity-0 touch-manipulation"
+                    aria-label="終了時間"
+                  />
+                </label>
               </div>
             </>
           )}
