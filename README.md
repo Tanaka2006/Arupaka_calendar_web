@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arupaka Calendar Web
 
-## Getting Started
+サークル内で作った「歩くアルパカ+R」という立命館大学生向けアプリのカレンダー機能で用いられています。
+**スマホでの「見やすさ」と「直感的な操作」**に寄せたカレンダーアプリです。  
+単に予定を表示するだけではなく、**「パッと見て状況を把握できて、迷わず次の画面へ行ける」**体験を目指してUIを設計・実装しています。
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## アプリ概要（What）
+- **月表示カレンダー**（モバイル想定の情報密度）
+- **日付タップで日別ビューへ遷移**（その日の予定だけに集中）
+- **予定の作成 / 編集 / 削除**
+- **立命館大学の学年暦（Academic Calendar）の表示切り替え**（表示状態を記憶）
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## なぜ作ったのか（Why）
+大学生生活は「講義・バイト・就活」などが同時進行で、予定が増えるほど情報が混線しがちです。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+既存のカレンダーは高機能ですが、  
+立命館大学がより使いやすいカレンダーを目指しています。
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 工夫したポイント（UI/UX）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1) モバイル前提のタップ体験
+- 画面幅を `max-w-md` に寄せて、片手操作を前提にしたレイアウト
+- タップ時の操作感を意識して `touch-action: manipulation` を適用
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2) 「見やすさ」のための情報設計
+- 月表示は各日あたりの表示件数を絞って視認性を維持
+- 予定タイトルは小さくても読めるように太字・余白を調整
+- 学年暦はグレー固定で表示し、個人予定のカラーと競合しないように
 
-## Deploy on Vercel
+### 3) 文脈が切れない画面遷移
+- 日別ページから戻ると「直前に見ていた月」に戻れるよう、クエリで月情報を保持
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4) 状態が“続く”体験
+- 「学年暦を表示する」トグルは localStorage に保存し、次回起動時に復元
+- 予定も localStorage に保存（ページ更新後も保持）
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 使用技術（Tech Stack）
+- Next.js（App Router） / React
+- TypeScript
+- Tailwind CSS
+- Radix UI（Switch / Button など）
+- lucide-react（アイコン）
+- Vercel（デプロイ）
+- localStorage（クライアント永続化）
+
+---
+
+## 今後改善したい点（Next）
+- 学年暦の取り込みを自動化（OCR/CSV/カレンダー連携など）
+- 予定が多い日の表示崩れ対策（折りたたみ、ドット表示、詳細導線）
+- 共有（サークル内での予定共有・配布）
+
+---
